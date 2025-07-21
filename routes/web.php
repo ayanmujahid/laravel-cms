@@ -27,6 +27,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // -----------------------------------Leave system-----------------------------------
 Route::middleware(['auth'])->group(function () {
+    Route::get('/', [IndexController::class, 'index'])->name('home');
     Route::get('/leaves', [LeaveController::class, 'index'])->name('leaves.index');
     Route::post('/leaves', [LeaveController::class, 'store'])->name('leaves.store');
     Route::get('/apply-leave', [LeaveController::class, 'create'])->name('leaves.create');
